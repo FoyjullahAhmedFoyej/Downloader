@@ -4,7 +4,7 @@ import yt_dlp
 import os
 import uuid
 
-BOT_TOKEN = '7677692942:AAELv-HwgUh37NAHN6bGAJUWxUXHwz4Ny10'
+BOT_TOKEN = 'YOUR_BOT_TOKEN_HERE'
 LINK_QUALITY = {}
 
 async def start(update: Update, context: ContextTypes.DEFAULT_TYPE):
@@ -17,7 +17,9 @@ async def handle_link(update: Update, context: ContextTypes.DEFAULT_TYPE):
         return
 
     try:
-        ydl_opts = {}
+        ydl_opts = {
+            'cookiefile': 'youtube.com_cookies.txt'  # Use cookies for authentication
+        }
         with yt_dlp.YoutubeDL(ydl_opts) as ydl:
             info = ydl.extract_info(url, download=False)
             formats = info.get("formats", [])
@@ -48,6 +50,7 @@ async def button_click(update: Update, context: ContextTypes.DEFAULT_TYPE):
     ydl_opts = {
         'format': format_id,
         'outtmpl': filename,
+        'cookiefile': 'youtube.com_cookies.txt'  # Use cookies for authentication
     }
 
     try:
