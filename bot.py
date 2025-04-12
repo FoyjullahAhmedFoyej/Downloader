@@ -4,7 +4,7 @@ import yt_dlp
 import os
 import uuid
 
-BOT_TOKEN = 'YOUR_BOT_TOKEN_HERE'
+BOT_TOKEN = '7677692942:AAELv-HwgUh37NAHN6bGAJUWxUXHwz4Ny10'
 LINK_QUALITY = {}
 
 async def start(update: Update, context: ContextTypes.DEFAULT_TYPE):
